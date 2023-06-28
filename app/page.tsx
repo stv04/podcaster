@@ -1,7 +1,9 @@
-import Image from 'next/image'
+import { getAll } from './api/api';
+import ContainerPodcasts from './components/containerPodcasts';
 
-export default function Home() {
-  return (
-    <h1>Hello layout</h1>
-  )
+
+export default async function Home() {
+  const podcats = await getAll();
+
+  return <ContainerPodcasts  pod={podcats}/>
 }
