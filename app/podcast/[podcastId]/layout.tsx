@@ -11,7 +11,7 @@ export default async function RootLayout({
   const podcast = await getPodcast(params.podcastId);
 
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid lg:grid-cols-3 gap-2">
         <div className='p-3'>
           <DetailedPodcastCard podcast={podcast} podcastId={params.podcastId}/>
         </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function DetailedPodcastCard({podcast, podcastId}: {podcast: Channel; podcastId: string}) {
     const imagen = listaPodcast.find(p => p.id.attributes?.["im:id"] == podcastId)?.["im:image"][2].label || "";
-    return <div className="max-w-sm rounded overflow-hidden shadow-md hover:shadow-lg my-3">
+    return <div className="max-w-sm rounded overflow-hidden shadow-md hover:shadow-lg my-3 mx-auto">
         <Link href={`/podcast/${podcastId}`}>
             <Image className="mx-auto my-2" width={200} height={300} src={imagen} alt="Imagen" />
             <div className="px-6 py-4">

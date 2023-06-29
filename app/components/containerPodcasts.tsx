@@ -11,7 +11,7 @@ export default function ContainerPodcasts({pod}: {pod: Entry[]}) {
 
     return <div className='container mx-auto'>
     <PrincipalFilter listaPrincipal={pod} listaFiltrada={podcasts} setPodcasts={setPodcasts}/>
-    <div className='grid grid-cols-4 gap-8'>
+    <div className='grid md:grid-cols-3 lg:md:grid-cols-4 sm:grid-cols-2  gap-8'>
       {podcasts.map((p) => <BasicPodcastCard podcast={p} key={p.id.attributes?.["im:id"]}/>)}
     </div>
   </div>

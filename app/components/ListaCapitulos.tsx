@@ -4,10 +4,10 @@ import { Item } from "../models/individualPodcast.model";
 import Link from "next/link";
 
 export default function ListaCapitulos({capitulos, podcastId}: {capitulos: Item[], podcastId: string}) {
-    return <div className="col-span-2">
+    return <div className="lg:col-span-2">
         <h1 className="rounded shadow-md p-3 overflow-auto my-4"><b>Espisodes: {capitulos.length}</b></h1>
 
-        <div className="shadow-md p-3 overflow-auto" 
+        <div className="shadow-md p-3 overflow-auto my-4" 
             style={{height: "75vh"}}
         >
             <Table responsive striped>
