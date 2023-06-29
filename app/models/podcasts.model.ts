@@ -1,3 +1,5 @@
+import { Channel } from "./individualPodcast.model"
+
 export interface Podcasts {
   feed: Feed
 }
@@ -28,6 +30,7 @@ export interface Entry {
   "im:artist": ImArtist
   category: Category
   "im:releaseDate": ImReleaseDate
+  details?: Channel
 }
 
 export interface ImName {
