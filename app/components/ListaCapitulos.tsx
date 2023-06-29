@@ -7,10 +7,10 @@ export default function ListaCapitulos({capitulos, podcastId}: {capitulos: Item[
     return <div className="lg:col-span-2">
         <h1 className="rounded shadow-md p-3 overflow-auto my-4"><b>Espisodes: {capitulos.length}</b></h1>
 
-        <div className="shadow-md p-3 overflow-auto my-4" 
+        <div className="shadow-md px-1 lg:p-3 overflow-auto my-4" 
             style={{height: "75vh"}}
         >
-            <Table responsive striped>
+            <Table responsive striped className="w-100">
                 <thead>
                     <tr>
                         <th>Title</th>
