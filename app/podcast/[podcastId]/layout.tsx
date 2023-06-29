@@ -8,13 +8,12 @@ export default async function RootLayout({
   children: React.ReactNode,
   params: {podcastId: string}
 }) {
-    console.log(params.podcastId);
-    const podcast = await getPodcast(params.podcastId);
+  const podcast = await getPodcast(params.podcastId);
 
   return (
-    <div className="grid grid-cols-3 gap-5">
-        <div>
-            <DetailedPodcastCard podcast={podcast} podcastId={params.podcastId}/>
+    <div className="grid grid-cols-3 gap-2">
+        <div className='p-3'>
+          <DetailedPodcastCard podcast={podcast} podcastId={params.podcastId}/>
         </div>
         {children}
     </div>

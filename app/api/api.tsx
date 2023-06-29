@@ -3,9 +3,16 @@ import xml2json from "xml2js";
 import { Channel, DetailedIndividualPodcast, IndividualPodcast } from "../models/individualPodcast.model";
 import { Podcasts, Entry } from "../models/podcasts.model";
 
+const revalidation: RequestInit = {
+    next: {
+        revalidate: 86400 // Tiempo de un día en segundos
+    }
+}
+
 export let listaPodcast:Entry[] = [];
 export async function getAll() {
-    const res = await fetch("https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json");
+    console.log("CARGADO TODA LA INFORMACIÓN");
+    const res = await fetch("https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json", revalidation);
   
     if(!res.ok) {
       console.log(res);
@@ -23,7 +30,7 @@ export async function getPodcast(podcastId: string) {
     const podcast = getPodcastById(podcastId);
 
     
-    const podcastContenido = await fetch(`https://itunes.apple.com/lookup?id=${podcastId}`);
+    const podcastContenido = await fetch(`https://itunes.apple.com/lookup?id=${podcastId}`, revalidation);
     
 
     if(!podcastContenido.ok) {
