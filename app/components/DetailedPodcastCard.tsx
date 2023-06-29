@@ -19,8 +19,7 @@ export default function DetailedPodcastCard({podcast, podcastId}: {podcast: Chan
 
             <div className="px-3 py-4">
                 <p><b>Description:</b></p>
-                <p className="text-gray-700 text-base">
-                {podcast["itunes:summary"]}
+                <p className="text-gray-700 text-base" dangerouslySetInnerHTML={{__html: podcast["itunes:summary"]}}>
                 </p>
             </div>
 

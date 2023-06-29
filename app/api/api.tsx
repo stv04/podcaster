@@ -11,7 +11,6 @@ const revalidation: RequestInit = {
 
 export let listaPodcast:Entry[] = [];
 export async function getAll() {
-    console.log("CARGADO TODA LA INFORMACIÓN");
     const res = await fetch("https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json", revalidation);
   
     if(!res.ok) {
@@ -29,10 +28,8 @@ export async function getPodcast(podcastId: string) {
 
     const podcast = getPodcastById(podcastId);
 
-    
     const podcastContenido = await fetch(`https://itunes.apple.com/lookup?id=${podcastId}`, revalidation);
     
-
     if(!podcastContenido.ok) {
         throw new Error("No se pudo cargar la info");
     }
@@ -59,8 +56,11 @@ export async function getEpisode(podcastId: string, episodeId: string) {
     if(!podcast?.details) await getPodcast(podcastId);
 
     const lista = podcast!.details!;
-
-    return lista.item.find(e => e.guid === episodeId);
+    const convert = (text: string) => { 
+        console.log(text);
+        return text.replace(/[^\w]/g, "");
+    }
+    return lista.item.find(e => convert(e.guid) == convert(episodeId));
 }
 async function convertirXmlAJson(textoXml: string):Promise<Channel> {
     const parser = new xml2json.Parser({

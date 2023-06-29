@@ -21,7 +21,7 @@ export default function ListaCapitulos({capitulos, podcastId}: {capitulos: Item[
                 <tbody>
                     {capitulos.map(c => (
                         <tr key={c.guid}>
-                            <td> <Link className="hover:text-cyan-600" href={`${podcastId}/episode/${c.guid}`}>{c.title}</Link></td>
+                            <td> <Link className="hover:text-cyan-600" href={`${podcastId}/episode/${c.guid.replace(/[^\w]/g, "")}`}>{c.title}</Link></td>
                             <td>{c.pubDate}</td>
                             <td>{c["itunes:duration"]}</td>
                         </tr>
